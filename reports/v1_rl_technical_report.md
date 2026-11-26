@@ -2,7 +2,7 @@
 
 本轮完成了四块双柔索代理上的 **30 轮 Contextual PPO、5 次评分器协同验证和 200 个独立初态的留出评估**。学习 Try 加完整本体反馈的入篮率为 **48.0%**。采用同一个 Informed 评分器时，相比固定 Try 的配对提升为 **9.6 个百分点**，95% CI 为 **+2.5 至 +16.7 个百分点**。最佳固定抓取达到 **68.5%**。训练末轮的试探接触率为 **12.3%**，低于 50% 的告警线。
 
-训练档为单张 RTX 5090 上的 **16,384 路**，约 **88,326 个有效宏回合/分钟**。最终 checkpoint 为 `policy_version=30`、`scorer_version=1`。这是一轮 Stage A 代理预训练。蒙皮预览使用同一条已录制的 C0 轨迹，高保真薄膜起皱、撕裂和真机闭环属于后续验证。 [原始运行报告](stage-a/v1_rl_report.md) · [最终 checkpoint](https://github.com/pig27777/yam-bag-rl/releases/download/v3-stage-a/policy_round_030.pt) · [蒙皮回放](https://github.com/pig27777/yam-bag-rl/releases/download/v3-stage-a/yam_surrogate_skin_demo.mp4)
+训练档为单张 RTX 5090 上的 **16,384 路**，约 **88,326 个有效宏回合/分钟**。最终模型版本为 `policy_version=30`、`scorer_version=1`。这是一轮 Stage A 代理预训练。蒙皮预览使用同一条已录制的 C0 轨迹，高保真薄膜起皱、撕裂和真机闭环属于后续验证。 [原始运行报告](stage-a/v1_rl_report.md) · [蒙皮回放](https://github.com/pig27777/yam-bag-rl/releases/download/v3-stage-a/yam_surrogate_skin_demo.mp4)
 
 ## 1. 一次闭环的数据流
 
@@ -171,7 +171,7 @@ C4 每 6 轮尝试一次。最近有效 on-policy 数据与 C1/历史数据各�
 
 ## 6. 部署接口与复核
 
-部署所需的模型包包括 Probe Actor、完整反馈评分器、Action Mask 与冻结的 `active`、`baseline`、`mu`、`sigma`。相机输出 12 维公开外袋几何。机器人反馈按上表构造 25 Hz 的 69 帧批次，并保留命令、阶段、有效位和时间戳。抓取候选以同一外袋坐标系表示，交给评分器排序。Critic 及其隐藏输入留在训练链路。 [checkpoint](https://github.com/pig27777/yam-bag-rl/releases/download/v3-stage-a/policy_round_030.pt) · [真机反馈映射接口](../src/yam_bag_rl/robot/yam_interface.py)
+部署所需的模型包包括 Probe Actor、完整反馈评分器、Action Mask 与冻结的 `active`、`baseline`、`mu`、`sigma`。相机输出 12 维公开外袋几何。机器人反馈按上表构造 25 Hz 的 69 帧批次，并保留命令、阶段、有效位和时间戳。抓取候选以同一外袋坐标系表示，交给评分器排序。Critic 及其隐藏输入留在训练链路。 [真机反馈映射接口](../src/yam_bag_rl/robot/yam_interface.py)
 
 生产代理覆盖四块积分、单向柔索、显式滑脱和有限表面接触。周一参考实现中的颈部阻尼与扭转在冻结复放回归中验证。首轮 C3 曾因离开指垫的翻转包裹产生异常直触而熔断，修复接触空间判定后重新完成正式训练和 24 项回归。蒙皮为回放中的双面半透明外袋几何，跟随原始内芯和指垫轨迹，保留原回合的动作、碰撞与奖励记录。 [回归日志](stage-a/regression-check.log) · [首轮熔断诊断](stage-a/attempt-01-pre-contact-fix/physics_circuit_breaker.json) · [蒙皮前后对照](stage-a/yam_surrogate_skin_comparison.png)
 

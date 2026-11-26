@@ -3,7 +3,7 @@
 独立的仿真和策略组件工程。包含 Yam_B 机械臂、四块双柔索包裹代理、GPU 批量环境和 CPU Policy V3 学习器。项目使用 `scripts/run_py.sh` 统一启动。
 
 - [Policy V3 技术报告](reports/v1_rl_technical_report.md)包含模型结构、动作、观测、奖励和留出结果。
-- [Stage A 运行产物](reports/stage-a/README.md)列出训练数据、逐轮缓存、模型、视频和 Python 环境快照。
+- [Stage A 运行产物](reports/stage-a/README.md)列出训练数据、逐轮缓存、视频和 Python 环境快照。
 
 ## 启动与验真
 

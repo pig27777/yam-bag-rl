@@ -4,10 +4,6 @@
     "bytes": 144872
   },
   {
-    "file": "policy_round_030.pt",
-    "bytes": 334972
-  },
-  {
     "file": "ppo-rollouts-01-05.tar.zst",
     "bytes": 566269714
   },
@@ -33,7 +29,7 @@
   },
   {
     "file": "python-environment-linux-x86_64.tar.zst",
-    "bytes": 537875055
+    "bytes": 537906066
   },
   {
     "file": "python-environment-requirements.txt",
@@ -41,7 +37,7 @@
   },
   {
     "file": "training-run-and-c1-data.tar.zst",
-    "bytes": 506901111
+    "bytes": 504897643
   },
   {
     "file": "yam_surrogate_demo.mp4",

@@ -1,0 +1,62 @@
+{
+  "step_s": 0.002,
+  "center_xy_m": [
+    -0.03,
+    -0.225
+  ],
+  "flat_bag_xy_m": [
+    0.29,
+    0.39
+  ],
+  "proxy": {
+    "S_bag": 0.034,
+    "s_max": 0.018,
+    "alpha": 0.6986791776426304,
+    "k": 68.25932595530693,
+    "c_d": 4.180237725842704,
+    "mu_eff": [
+      0.63,
+      0.55
+    ],
+    "beta": 0.014770870737038842,
+    "s_crit": 0.0015,
+    "F_min": 0.25,
+    "F_lock": 0.48,
+    "F_release": 0.1,
+    "h_min": 0.0035,
+    "cos_theta_max": 0.65,
+    "tau_gate": 0.012,
+    "v_gather_max": 0.075,
+    "L0": [
+      0.065,
+      0.065
+    ]
+  },
+  "neck_damping": 12.0,
+  "fold_width_m": 0.024,
+  "fold_normal_stiffness_N_m": 1600.0,
+  "neck_98mm": {
+    "mass_kg": 0.065,
+    "cloth_size_m": [
+      0.22,
+      0.31,
+      0.02
+    ],
+    "neck_length_m": 0.098,
+    "grip_radius_m": 0.01,
+    "mount_half_spacing_m": 0.024
+  },
+  "center_250g": {
+    "mass_kg": 0.25,
+    "cloth_size_m": [
+      0.245,
+      0.345,
+      0.02
+    ],
+    "rope_stiffness_N_m": 92.5,
+    "mount_half_spacing_m": 0.0015,
+    "grip_radius_m": 0.01,
+    "torsion_length_m": 0.02,
+    "torsion_stiffness_Nm_rad": 0.001
+  }
+}

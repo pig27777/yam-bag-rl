@@ -1,0 +1,102 @@
+{
+  "table": {
+    "center_m": [
+      0.0,
+      0.0,
+      -0.005
+    ],
+    "size_m": [
+      0.595,
+      1.3,
+      0.01
+    ]
+  },
+  "arm_bases_m": [
+    [
+      -0.3475,
+      0.31,
+      0.0
+    ],
+    [
+      -0.3475,
+      -0.31,
+      0.0
+    ]
+  ],
+  "arm_base_quat_wxyz": [
+    1.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "top_camera": {
+    "position_m": [
+      -0.51399488,
+      0.0,
+      0.95432053
+    ],
+    "quat_wxyz": [
+      -0.18301197,
+      0.6830129,
+      -0.6830129,
+      0.18301197
+    ],
+    "vertical_fov_deg": 58.0
+  },
+  "wrist_camera": {
+    "parent": "gripper",
+    "position_m": [
+      -0.070435,
+      0.0,
+      -0.077006
+    ],
+    "quat_wxyz": [
+      0.15304618,
+      0.69034547,
+      0.69034547,
+      0.15304618
+    ],
+    "focal_length_m": 0.00193,
+    "sensor_size_m": [
+      0.003896,
+      0.00214
+    ],
+    "resolution_px": [
+      1280,
+      720
+    ]
+  },
+  "ready_rail_m": -0.04,
+  "parked_arm": {
+    "abc_index": 0,
+    "ready_joints_rad": [
+      -0.261589645,
+      1.82350979,
+      1.859619939,
+      -1.606910025,
+      -1.04e-06,
+      -1.83237973
+    ]
+  },
+  "pick_center_m": [
+    -0.03,
+    -0.225,
+    0.0
+  ],
+  "bin": {
+    "center_m": [
+      -0.03,
+      0.03,
+      0.0
+    ],
+    "inner_half_xy_m": [
+      0.21,
+      0.151
+    ],
+    "wall_thickness_m": 0.006,
+    "rim_height_m": 0.12,
+    "clearance_over_rim_m": 0.01,
+    "settled_speed_m_s": 0.02,
+    "settled_duration_s": 0.5
+  }
+}

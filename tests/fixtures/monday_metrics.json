@@ -1,0 +1,12 @@
+{
+  "neck_98mm": {
+    "history_key": "audit_2ms",
+    "hover_vertical_force_N": 0.6376389265060425,
+    "peak_clearance_m": 0.16472315788269043
+  },
+  "center_250g": {
+    "history_key": "history",
+    "hover_vertical_force_N": 2.4524216651916504,
+    "peak_clearance_m": 0.26217299699783325
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "defaults": {
+    "bag_half_extents": [
+      0.075,
+      0.1,
+      0.016
+    ],
+    "fill_ratio": 0.75,
+    "total_mass": 0.2,
+    "mass_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "alpha_bend": 0.0,
+    "theta_max": 0.0,
+    "alpha_stretch": 0.0,
+    "slide_slack_max": 0.0,
+    "internal_damping": 0.2,
+    "max_indent_ratio": 0.0,
+    "k_soft": 100.0,
+    "hardening_gamma": 5.0,
+    "c_comp": 4.0,
+    "tau_rebound": 0.3,
+    "table_friction": 0.4,
+    "lateral_crush_k": 10000.0
+  },
+  "presets": {
+    "folded_clothes": {
+      "bag_half_extents": [
+        0.12,
+        0.09,
+        0.028
+      ],
+      "total_mass": 0.5,
+      "alpha_bend": 0.03,
+      "theta_max": 1.2,
+      "alpha_stretch": 0.002,
+      "internal_damping": 0.75,
+      "max_indent_ratio": 0.35,
+      "tau_rebound": 0.6,
+      "lateral_crush_k": 210.0
+    }
+  }
+}

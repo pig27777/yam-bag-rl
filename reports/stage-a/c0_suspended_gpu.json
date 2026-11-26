@@ -1,0 +1,9 @@
+{
+  "device": "NVIDIA GeForce RTX 5090",
+  "independent_worlds": 64,
+  "substeps": 64,
+  "max_tension_error_N": 1.0728836059570312e-05,
+  "max_clearance_error_m": 1.862645149230957e-07,
+  "capture_steps_match": true,
+  "compared_design": "Suspended shared submodel with optional neck and torsion disabled"
+}

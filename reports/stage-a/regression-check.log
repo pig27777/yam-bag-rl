@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.2.0, pluggy-1.7.0 -- /home/ubuntu/workspace/gzl/yam_bag_rl/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/ubuntu/workspace/gzl/yam_bag_rl
+configfile: pyproject.toml
+collecting ... collected 24 items
+
+tests/test_zero_old_repo_dep.py::test_launcher_and_imports_stay_in_checkout PASSED [  4%]
+tests/test_zero_old_repo_dep.py::test_runtime_sources_have_no_sibling_checkout_path PASSED [  8%]
+tests/test_zero_old_repo_dep.py::ZeroLegacyDependencyTest::test_all_modules_import_with_local_pythonpath PASSED [ 12%]
+tests/test_zero_old_repo_dep.py::ZeroLegacyDependencyTest::test_local_source_and_resource_paths PASSED [ 16%]
+tests/test_monday_rope_equiv.py::MondayReplayTest::test_center_250g
+tests/test_monday_rope_equiv.py::MondayReplayTest::test_center_250g PASSED [ 20%]
+tests/test_monday_rope_equiv.py::MondayReplayTest::test_neck_98mm
+tests/test_monday_rope_equiv.py::MondayReplayTest::test_neck_98mm PASSED [ 25%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_c4_updates_then_publishes_and_gpu_environment_isolated PASSED [ 29%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_evaluation_freezes_g_a_in_world_and_matches_four_modalities PASSED [ 33%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_flex_and_rigid_share_the_table_without_duplicate_film_contacts PASSED [ 37%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_frozen_paths
+tests/policy_v3/test_v3.py::PolicyV3Test::test_frozen_paths PASSED       [ 41%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_group_split_joins_transitive_initial_and_probe_links PASSED [ 45%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_info_mode_never_reads_v1
+tests/policy_v3/test_v3.py::PolicyV3Test::test_info_mode_never_reads_v1 PASSED [ 50%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_invalid_routing PASSED    [ 54%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_motor_effort_limit_uses_native_calibration PASSED [ 58%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_one_try_and_stop_without_retract_or_visual PASSED [ 62%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_padding_raw_and_optional_feedback PASSED [ 66%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_tanh_log_prob_saturation_and_actual_ppo_update PASSED [ 70%]
+tests/policy_v3/test_v3.py::PolicyV3Test::test_v0_training_rejects_v1_selected_candidates PASSED [ 75%]
+tests/policy_v3/test_yam_substep.py::YamSubstepTest::test_force_uses_contact_world_and_detects_even_small_positive_direct_load PASSED [ 79%]
+tests/policy_v3/test_yam_substep.py::YamSubstepTest::test_probe_unloads_and_grasp_freezes_or_opens_independently PASSED [ 83%]
+tests/policy_v3/test_yam_substep.py::YamSubstepTest::test_soft_depth_allowance_preserves_rigid_collision_and_world_boundary PASSED [ 87%]
+tests/policy_v3/test_yam_substep.py::YamSubstepTest::test_stale_rigid_contact_tags_do_not_change_material PASSED [ 91%]
+tests/test_surrogate_candidates.py::test_same_public_geometry_and_seed_reproduce_pool_across_hidden_states PASSED [ 95%]
+tests/test_surrogate_contact.py::test_finite_core_contact_slab PASSED    [100%]
+
+=================== 24 passed, 68 subtests passed in 30.82s ====================

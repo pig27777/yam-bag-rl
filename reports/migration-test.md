@@ -17,4 +17,4 @@ scripts/run_py.sh scripts/verify_migration.py
 
 原仓库用 `GIT_OPTIONAL_LOCKS=0 git status --short` 与四个冻结参考及同一工作起点的路径级 `git diff --exit-code` 检查。迁移前后的状态快照逐字节一致，Git index 哈希相同，冻结检查 5/5 通过。其他会话在新工程目录并行创建的虚拟环境和高并发实验文件在本次基准提交范围之外。
 
-[统一验真日志](../runs/migration/verify.log) · [源冻结检查](../runs/migration/source-frozen-check.log)
+本地原始记录位于 `runs/migration/`。Stage A 的公开复核记录见 [回归日志](stage-a/regression-check.log)。

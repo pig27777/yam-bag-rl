@@ -1,0 +1,54 @@
+[
+  {
+    "file": "baseline-replay-inputs.tar.zst",
+    "bytes": 144872
+  },
+  {
+    "file": "policy_round_030.pt",
+    "bytes": 334972
+  },
+  {
+    "file": "ppo-rollouts-01-05.tar.zst",
+    "bytes": 566269714
+  },
+  {
+    "file": "ppo-rollouts-06-10.tar.zst",
+    "bytes": 564195653
+  },
+  {
+    "file": "ppo-rollouts-11-15.tar.zst",
+    "bytes": 562157042
+  },
+  {
+    "file": "ppo-rollouts-16-20.tar.zst",
+    "bytes": 559711992
+  },
+  {
+    "file": "ppo-rollouts-21-25.tar.zst",
+    "bytes": 557217041
+  },
+  {
+    "file": "ppo-rollouts-26-30.tar.zst",
+    "bytes": 555503584
+  },
+  {
+    "file": "python-environment-linux-x86_64.tar.zst",
+    "bytes": 537875055
+  },
+  {
+    "file": "python-environment-requirements.txt",
+    "bytes": 657
+  },
+  {
+    "file": "training-run-and-c1-data.tar.zst",
+    "bytes": 506901111
+  },
+  {
+    "file": "yam_surrogate_demo.mp4",
+    "bytes": 185661
+  },
+  {
+    "file": "yam_surrogate_skin_demo.mp4",
+    "bytes": 2474483
+  }
+]

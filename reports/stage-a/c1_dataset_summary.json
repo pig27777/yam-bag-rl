@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "quality": [
+    {
+      "episodes": 768,
+      "valid": 761,
+      "invalid": 7,
+      "success": 334,
+      "positive_rate": 0.43889618922470436,
+      "retracted": 768,
+      "probe_contacts": 352,
+      "probe_cutoffs": 581,
+      "direct_force_nonzero": 269,
+      "peak_direct_force_N": 248.24993896484375,
+      "max_clearance_m": 0.24571485817432404,
+      "invalid_reasons": {
+        "4.0": 7
+      },
+      "overflow_flags": {
+        "0.0": 768
+      },
+      "success_by_regime": {
+        "loose_left": 64,
+        "loose_right": 74,
+        "medium_centered": 108,
+        "flat_full": 88
+      },
+      "coverage": {
+        "position_min": [
+          -0.0924605280160904,
+          -0.05153389275074005,
+          0.000596173107624054
+        ],
+        "position_max": [
+          0.09236698597669601,
+          0.051718518137931824,
+          0.02550194412469864
+        ],
+        "guided_picks": 374,
+        "uniform_picks": 394
+      }
+    }
+  ],
+  "waves": [
+    {
+      "episodes": 16384,
+      "valid": 16163,
+      "invalid": 221,
+      "success": 7556,
+      "positive_rate": 0.46748747138526264,
+      "retracted": 16376,
+      "probe_contacts": 7841,
+      "probe_cutoffs": 12240,
+      "direct_force_nonzero": 6060,
+      "peak_direct_force_N": 270.67816162109375,
+      "max_clearance_m": 0.24993453919887543,
+      "invalid_reasons": {
+        "4.0": 221
+      },
+      "overflow_flags": {
+        "0.0": 16384
+      },
+      "success_by_regime": {
+        "loose_left": 1480,
+        "loose_right": 1686,
+        "medium_centered": 2301,
+        "flat_full": 2089
+      }
+    }
+  ],
+  "valid_episodes": 8192,
+  "positive_rate": 0.468994140625,
+  "groups_no_overlap": true,
+  "split": {
+    "train": 5734,
+    "validation": 1229,
+    "test": 1229
+  }
+}

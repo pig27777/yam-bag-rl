@@ -1,0 +1,39 @@
+{
+  "rows": [
+    {
+      "abs_lateral_mm": 83.0,
+      "episodes": 16,
+      "valid": 16,
+      "success": 4,
+      "clean_empty_side_success": 4
+    },
+    {
+      "abs_lateral_mm": 92.0,
+      "episodes": 16,
+      "valid": 16,
+      "success": 0,
+      "clean_empty_side_success": 0
+    },
+    {
+      "abs_lateral_mm": 100.0,
+      "episodes": 16,
+      "valid": 16,
+      "success": 0,
+      "clean_empty_side_success": 0
+    },
+    {
+      "abs_lateral_mm": 106.0,
+      "episodes": 16,
+      "valid": 16,
+      "success": 0,
+      "clean_empty_side_success": 0
+    }
+  ],
+  "selected_case_mm": 83.0,
+  "selected_case_source": "supplemental",
+  "selected_edge_clearance_mm": 126.40133666992188,
+  "selected_full_lateral_mm": -23.03493022918701,
+  "selected_full_clearance_mm": 204.44091796875,
+  "flat_target_episodes": 32,
+  "flat_target_success": 29
+}

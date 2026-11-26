@@ -1,0 +1,444 @@
+{
+  "status": "PASS",
+  "checks": {
+    "all_regimes_positive": true,
+    "at_least_ten_positive": true,
+    "empty_edge_lift_and_deposit": true,
+    "insufficient_clamp_dropped": true,
+    "eccentric_overload_dropped": true,
+    "measured_direct_force": true,
+    "cutoff_and_retract": true,
+    "histories_separable": true
+  },
+  "waves": [
+    {
+      "episodes": 64,
+      "valid": 64,
+      "invalid": 0,
+      "success": 21,
+      "positive_rate": 0.328125,
+      "retracted": 64,
+      "probe_contacts": 57,
+      "probe_cutoffs": 14,
+      "direct_force_nonzero": 19,
+      "peak_direct_force_N": 55.25316619873047,
+      "max_clearance_m": 0.23331931233406067,
+      "invalid_reasons": {},
+      "overflow_flags": {},
+      "success_by_regime": {
+        "loose_left": 4,
+        "loose_right": 4,
+        "medium_centered": 6,
+        "flat_full": 7
+      },
+      "wave": "geometric",
+      "telemetry_separation": {
+        "held_out_nearest_centroid_accuracy": 0.5,
+        "test_rows": 32,
+        "chance": 0.25,
+        "residual_rms_by_regime": {
+          "loose_left": [
+            0.0494619044841802,
+            0.6223088159538092,
+            0.5394638113585585,
+            0.1473464713450936,
+            0.03930584929987548,
+            0.029003748945162316
+          ],
+          "loose_right": [
+            0.05920876909103558,
+            0.6897527634200532,
+            0.6149390698489182,
+            0.16426839752951658,
+            0.04117950188730609,
+            0.035719964062040366
+          ],
+          "medium_centered": [
+            0.08709345931841778,
+            0.6542789005653038,
+            0.5389706284561108,
+            0.18101585709104928,
+            0.03319592976613725,
+            0.034303296140356355
+          ],
+          "flat_full": [
+            0.0798803985614521,
+            0.8845148506856128,
+            0.7227297771267605,
+            0.17126980057517197,
+            0.023758003070942304,
+            0.030395411212588368
+          ]
+        }
+      },
+      "near_static_rope_weight_ratio": 0.9780224561691284
+    },
+    {
+      "episodes": 64,
+      "valid": 63,
+      "invalid": 1,
+      "success": 32,
+      "positive_rate": 0.5079365079365079,
+      "retracted": 64,
+      "probe_contacts": 59,
+      "probe_cutoffs": 9,
+      "direct_force_nonzero": 17,
+      "peak_direct_force_N": 179.21585083007812,
+      "max_clearance_m": 0.2009386569261551,
+      "invalid_reasons": {
+        "4.0": 1
+      },
+      "overflow_flags": {
+        "0.0": 64
+      },
+      "success_by_regime": {
+        "loose_left": 6,
+        "loose_right": 10,
+        "medium_centered": 8,
+        "flat_full": 8
+      },
+      "wave": "edge",
+      "telemetry_separation": {
+        "held_out_nearest_centroid_accuracy": 0.5,
+        "test_rows": 32,
+        "chance": 0.25,
+        "residual_rms_by_regime": {
+          "loose_left": [
+            0.06204704388151061,
+            0.6365841763380722,
+            0.5524121755825754,
+            0.14650826234942746,
+            0.04039154190219466,
+            0.027873493330999127
+          ],
+          "loose_right": [
+            0.04704743746630769,
+            0.6703177978391083,
+            0.5854486793519987,
+            0.13004953341581724,
+            0.028665215125805988,
+            0.02638082774671187
+          ],
+          "medium_centered": [
+            0.07828220687747145,
+            0.7266247456835402,
+            0.5766171824679397,
+            0.1651015702649358,
+            0.039971781857123925,
+            0.028306330375820633
+          ],
+          "flat_full": [
+            0.04936203693106024,
+            0.7500408815588178,
+            0.6285371722628396,
+            0.16699418256788826,
+            0.031797474153106464,
+            0.026636447212170216
+          ]
+        }
+      },
+      "near_static_rope_weight_ratio": 0.9837416410446167
+    },
+    {
+      "episodes": 64,
+      "valid": 63,
+      "invalid": 1,
+      "success": 16,
+      "positive_rate": 0.25396825396825395,
+      "retracted": 64,
+      "probe_contacts": 59,
+      "probe_cutoffs": 13,
+      "direct_force_nonzero": 22,
+      "peak_direct_force_N": 201.7981414794922,
+      "max_clearance_m": 0.22260618209838867,
+      "invalid_reasons": {
+        "4.0": 1
+      },
+      "overflow_flags": {
+        "0.0": 64
+      },
+      "success_by_regime": {
+        "loose_left": 1,
+        "loose_right": 5,
+        "medium_centered": 4,
+        "flat_full": 6
+      },
+      "wave": "deep",
+      "telemetry_separation": {
+        "held_out_nearest_centroid_accuracy": 0.4375,
+        "test_rows": 32,
+        "chance": 0.25,
+        "residual_rms_by_regime": {
+          "loose_left": [
+            0.08197838411372906,
+            0.6069548446340987,
+            0.5126721314719611,
+            0.15555299386286686,
+            0.0450962154046166,
+            0.02944670240576691
+          ],
+          "loose_right": [
+            0.05633488663532298,
+            0.6679107222103459,
+            0.5886041204729152,
+            0.15556740857878606,
+            0.03185959860359284,
+            0.030759447277837068
+          ],
+          "medium_centered": [
+            0.0394916586188288,
+            0.681839129354288,
+            0.6185388239153867,
+            0.14708775571687652,
+            0.025611662180336805,
+            0.027335342835623222
+          ],
+          "flat_full": [
+            0.05274440107965938,
+            0.7770406657845994,
+            0.6729925582224463,
+            0.16311185289127056,
+            0.02654862817094824,
+            0.027847454444391906
+          ]
+        }
+      },
+      "near_static_rope_weight_ratio": 0.982434868812561
+    },
+    {
+      "episodes": 64,
+      "valid": 64,
+      "invalid": 0,
+      "success": 8,
+      "positive_rate": 0.125,
+      "retracted": 64,
+      "probe_contacts": 58,
+      "probe_cutoffs": 13,
+      "direct_force_nonzero": 14,
+      "peak_direct_force_N": 13.709185600280762,
+      "max_clearance_m": 0.23728995025157928,
+      "invalid_reasons": {},
+      "overflow_flags": {},
+      "success_by_regime": {
+        "loose_left": 0,
+        "loose_right": 0,
+        "medium_centered": 3,
+        "flat_full": 5
+      },
+      "wave": "fault",
+      "telemetry_separation": {
+        "held_out_nearest_centroid_accuracy": 0.34375,
+        "test_rows": 32,
+        "chance": 0.25,
+        "residual_rms_by_regime": {
+          "loose_left": [
+            0.07980886774611316,
+            0.6065637809934307,
+            0.5258788991660682,
+            0.16256385942365295,
+            0.03927172424067864,
+            0.03511699799767674
+          ],
+          "loose_right": [
+            0.08076506321789734,
+            0.6602541773190084,
+            0.5753982502800942,
+            0.16902981536449602,
+            0.03434638810071548,
+            0.035133018669600724
+          ],
+          "medium_centered": [
+            0.07776093395619232,
+            0.7207546116336774,
+            0.6219137801209579,
+            0.17125639222885303,
+            0.03497297745140598,
+            0.03994229126876845
+          ],
+          "flat_full": [
+            0.07616698761869907,
+            0.8125079975637455,
+            0.6780525379079164,
+            0.1814129157779289,
+            0.03060930696661745,
+            0.03647793194546416
+          ]
+        }
+      },
+      "near_static_rope_weight_ratio": 0.9765398502349854
+    }
+  ],
+  "normal_success_by_regime": {
+    "loose_left": 11,
+    "loose_right": 19,
+    "medium_centered": 18,
+    "flat_full": 21
+  },
+  "empty_edge_successes": [
+    {
+      "wave": "geometric",
+      "world": 17,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.06056232377886772,
+      "peak_clearance_m": 0.13753242790699005
+    },
+    {
+      "wave": "edge",
+      "world": 0,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.052000001072883606,
+      "peak_clearance_m": 0.15132829546928406
+    },
+    {
+      "wave": "edge",
+      "world": 1,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.052000001072883606,
+      "peak_clearance_m": 0.143153578042984
+    },
+    {
+      "wave": "edge",
+      "world": 5,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.05366666615009308,
+      "peak_clearance_m": 0.15414254367351532
+    },
+    {
+      "wave": "edge",
+      "world": 8,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.05533333495259285,
+      "peak_clearance_m": 0.1522822231054306
+    },
+    {
+      "wave": "edge",
+      "world": 9,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.05533333495259285,
+      "peak_clearance_m": 0.14226755499839783
+    },
+    {
+      "wave": "edge",
+      "world": 12,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.05700000002980232,
+      "peak_clearance_m": 0.15436109900474548
+    },
+    {
+      "wave": "edge",
+      "world": 13,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.05700000002980232,
+      "peak_clearance_m": 0.13240189850330353
+    },
+    {
+      "wave": "edge",
+      "world": 17,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.058666665107011795,
+      "peak_clearance_m": 0.1496231108903885
+    },
+    {
+      "wave": "edge",
+      "world": 20,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.060333333909511566,
+      "peak_clearance_m": 0.12659527361392975
+    },
+    {
+      "wave": "edge",
+      "world": 21,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.060333333909511566,
+      "peak_clearance_m": 0.13545705378055573
+    },
+    {
+      "wave": "edge",
+      "world": 29,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.06366666406393051,
+      "peak_clearance_m": 0.13658717274665833
+    },
+    {
+      "wave": "edge",
+      "world": 33,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.06533333659172058,
+      "peak_clearance_m": 0.14304538071155548
+    },
+    {
+      "wave": "edge",
+      "world": 40,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.06866666674613953,
+      "peak_clearance_m": 0.1283644288778305
+    },
+    {
+      "wave": "edge",
+      "world": 41,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.06866666674613953,
+      "peak_clearance_m": 0.12894156575202942
+    },
+    {
+      "wave": "edge",
+      "world": 48,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.07199999690055847,
+      "peak_clearance_m": 0.14596693217754364
+    },
+    {
+      "wave": "edge",
+      "world": 49,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.07199999690055847,
+      "peak_clearance_m": 0.12704689800739288
+    },
+    {
+      "wave": "deep",
+      "world": 17,
+      "regime": "loose_right",
+      "candidate_lateral_m": -0.06467895954847336,
+      "peak_clearance_m": 0.14480635523796082
+    },
+    {
+      "wave": "deep",
+      "world": 28,
+      "regime": "loose_left",
+      "candidate_lateral_m": 0.06669838726520538,
+      "peak_clearance_m": 0.14855074882507324
+    }
+  ],
+  "fault_drop_examples": {
+    "insufficient_clamp": [
+      0,
+      1,
+      2,
+      3,
+      8,
+      9,
+      10,
+      11,
+      16,
+      17,
+      18,
+      19,
+      24,
+      25,
+      26,
+      27,
+      32,
+      33,
+      34,
+      35,
+      42,
+      43
+    ],
+    "eccentric_overload": [
+      12,
+      13,
+      36
+    ]
+  },
+  "elapsed_s": 12.134057420073077
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "rounds": 30,
+  "scorer_version": 1,
+  "alternating_updates": 5,
+  "published_updates": 0,
+  "circuit_breaker": false
+}

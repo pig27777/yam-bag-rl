@@ -1,15 +1,20 @@
 # Yam_B 双柔索代理与 Policy V3
 
-独立的仿真和策略组件工程。机械臂资产、工位参数、四块内容物与双柔索方程、Policy V3 及迁移验真的输入均存放在此。唯一外部运行时入口由 `scripts/run_py.sh` 调用已指定的 Python 环境。迁移基准源快照为 `c77216478efdcf2b5a65c64bd6cd558fda198ea6`。
+独立的仿真和策略组件工程。包含 Yam_B 机械臂、四块双柔索包裹代理、GPU 批量环境和 CPU Policy V3 学习器。项目使用 `scripts/run_py.sh` 统一启动。
+
+- [Policy V3 技术报告](reports/v1_rl_technical_report.md)包含模型结构、动作、观测、奖励和留出结果。
+- [Stage A 运行产物](reports/stage-a/README.md)列出训练数据、逐轮缓存、模型、视频和 Python 环境快照。
 
 ## 启动与验真
 
+在仓库根目录运行以下命令。启动脚本使用本工程 `src/` 作为 `PYTHONPATH`，设置 OMP、OpenBLAS、MKL 为单线程，并保留调用者的 `CUDA_VISIBLE_DEVICES`。
+
 ```bash
-cd /home/ubuntu/workspace/gzl/yam_bag_rl
+scripts/run_py.sh --bootstrap -m venv .venv
+scripts/run_py.sh -m pip install mujoco==4.0.1 mujoco-warp==4.0.1 warp-lang==1.19.0 matplotlib imageio-ffmpeg pytest
+scripts/run_py.sh -m pip install torch==2.15.0+cpu --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple
 scripts/run_py.sh scripts/verify_migration.py
 ```
-
-启动脚本用新工程 `src/` 覆盖 `PYTHONPATH`，设置 OMP、OpenBLAS、MKL 为单线程，并保留调用者的 `CUDA_VISIBLE_DEVICES`。指定解释器使用已有 MuJoCo、MJWarp、Warp、NumPy 与 Torch。另一个工作流显式使用 `--local` 或 `--bootstrap`，本工程的验真走默认入口。
 
 ```bash
 mkdir -p runs/replay
@@ -19,7 +24,13 @@ scripts/run_py.sh -m yam_bag_rl.bag.proxy_contact \
   tests/fixtures/center_250g_input.npz runs/replay/center_250g.npz
 ```
 
-`yam_bag_rl.envs.make_smoke_env()` 提供刚体夹具上的 `reset`、13D `execute_probe`、11D 候选/抓取以及结果接口。`robot.yam_model.nominal_gravity_bias(q)` 用标称 MJCF 和零速度求六轴 `qfrc_bias`，单位 N·m。`policy_v3.yam_scorer` 提供 `NormalizedHistoryEncoder` 和 `FiLMGraspScorer`，可传给既有 `SupervisedTrainEntry`。Policy V3 的默认拼接 Scorer、TCN 结构与 Contextual PPO 行为沿用源实现。工作器与设备子步审计接口保留，正式高并发袋体环境由后续适配器接入。
+`yam_bag_rl.envs.make_smoke_env()` 提供刚体夹具上的 `reset`、13D `execute_probe`、11D 候选/抓取以及结果接口。`robot.yam_model.nominal_gravity_bias(q)` 用标称 MJCF 和零速度求六轴 `qfrc_bias`，单位 N·m。Policy V3 默认使用拼接 Scorer。高并发代理工作流显式使用 TCN-FiLM。
+
+```bash
+scripts/run_surrogate_v3.sh
+```
+
+此入口从 C0 运行至留出评估，产物写入 `runs/surrogate-v1-large-scale/`。调试某一阶段时使用 `--stage c0`、`--stage scaling`、`--stage c1` 或 `--stage train`。PPO 续训使用 `--stage train --resume runs/surrogate-v1-large-scale/policy_round_NNN.pt`。
 
 周一版本以虚拟柔索直接向四块内容物施力。本工程验证复放等价性，模型仍属于低阶代理近似。刚体夹具的控制与抓放结果只覆盖软件回归。验真命令不启动 RL 训练。
 
@@ -33,10 +44,10 @@ src/yam_bag_rl/
   robot/               # 装配、FK、CPU/MJWarp 控制与静重力偏置
   bag/                 # 冻结方程、两个周一复放入口
   policy_v3/           # 宏动作、历史、评分器、PPO、评估与工作器
-  envs/                # 供新环境复用的宏接口和刚体烟测
+  envs/                # GPU 四块双柔索环境、高并发运行入口和刚体烟测
 scripts/               # 统一 Python 启动和一键验真
 tests/                # 自包含的复放数组与回归
-reports/               # 迁移验收记录
+reports/               # 技术报告、验证和实测指标
 runs/                  # 本地运行产物，Git 忽略
 ```
 

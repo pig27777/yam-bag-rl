@@ -33,13 +33,31 @@ class ProprioHistoryEncoder(nn.Module):
 
 
 class GraspScorer(nn.Module):
-    def __init__(self):
+    def __init__(self, fusion_mode="concat", *, public_dim=37, history_dim=None, dropout=.2):
         super().__init__()
-        self.net = nn.Sequential(nn.Linear(37 + 64 + 11, 96), nn.SiLU(), nn.Linear(96, 64),
-                                 nn.SiLU(), nn.Linear(64, 1))
+        self.fusion_mode = fusion_mode
+        if fusion_mode == "concat":
+            history_dim = 64 if history_dim is None else history_dim
+            self.net = nn.Sequential(nn.Linear(public_dim + history_dim + 11, 96), nn.SiLU(),
+                                     nn.Linear(96, 64), nn.SiLU(), nn.Linear(64, 1))
+        elif fusion_mode == "film":
+            history_dim = 32 if history_dim is None else history_dim
+            self.candidate = mlp(public_dim + 11, 48, 32)
+            self.modulation = mlp(history_dim, 32, 64)
+            self.dropout = nn.Dropout(dropout)
+            self.readout = nn.Linear(32, 1)
+        else:
+            raise ValueError(f"Unknown grasp fusion mode {fusion_mode!r}")
         self.register_buffer("grasp_scale", torch.tensor([12.] * 3 + [1.] * 6 + [12., 1.]))
 
     def logits(self, public, history, grasp):
+        if self.fusion_mode == "film":
+            encoded = self.candidate(torch.cat((public[:, None].expand(-1, grasp.shape[1], -1),
+                                                grasp * self.grasp_scale), dim=-1))
+            centered = encoded - encoded.mean(dim=1, keepdim=True)
+            gamma, beta = self.modulation(history).chunk(2, dim=-1)
+            modulated = (1. + gamma[:, None]) * centered + beta[:, None]
+            return self.readout(self.dropout(modulated)).squeeze(-1)
         return self.net(torch.cat((public, history, grasp * self.grasp_scale), dim=-1)).squeeze(-1)
 
     def forward(self, public, history, grasp):
@@ -53,8 +71,12 @@ def tanh_log_prob(distribution, u):
 
 
 class ProbeActor(nn.Module):
-    def __init__(self):
+    def __init__(self, action_mask=None):
         super().__init__()
+        if action_mask is not None and (len(action_mask) != 13 or not any(action_mask)):
+            raise ValueError("Select at least one of the 13 Probe action dimensions")
+        self.register_buffer("action_mask", None if action_mask is None else torch.as_tensor(action_mask,
+                                                                                             dtype=torch.bool))
         self.net = mlp(12, 64, 13)
         self.log_std = nn.Parameter(torch.full((13,), -1.))
         nn.init.uniform_(self.net[-1].weight, -.01, .01)
@@ -67,7 +89,20 @@ class ProbeActor(nn.Module):
         dist = self.distribution(v0)
         u = dist.mean if deterministic else dist.mean + dist.stddev * torch.randn(
             dist.mean.shape, generator=generator, dtype=v0.dtype, device=v0.device)
-        return u, torch.tanh(u), tanh_log_prob(dist, u)
+        if self.action_mask is None:
+            return u, torch.tanh(u), tanh_log_prob(dist, u)
+        u = u.masked_fill(~self.action_mask, 0.)
+        return u, torch.tanh(u), self.log_prob(dist, u)
+
+    def log_prob(self, dist, u):
+        if self.action_mask is None:
+            return tanh_log_prob(dist, u)
+        active = self.action_mask
+        selected = u[..., active]
+        distribution = torch.distributions.Normal(dist.loc[..., active], dist.scale[..., active])
+        # Stable log derivative of tanh, including saturated actions.
+        log_jacobian = 2. * (.6931471805599453 - selected - F.softplus(-2. * selected))
+        return (distribution.log_prob(selected) - log_jacobian).sum(-1)
 
 
 class PrivilegedCritic(nn.Module):
